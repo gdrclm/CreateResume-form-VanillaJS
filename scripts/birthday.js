@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
         ageElement.textContent = calculateAge(numericYear);
 
         // Установка иконки знака зодиака
-        zodiacIconElement.src = "/icons/icons_zodiak/" + zodiacSign.icon;
+        zodiacIconElement.src = "./icons/icons_zodiak/" + zodiacSign.icon;
         zodiacIconElement.alt = zodiacSign.name;
 
         zodiacSignElement.insertAdjacentElement(
