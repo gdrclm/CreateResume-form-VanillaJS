@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create-resume-form</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <style>
+    input::-webkit-datetime-edit-ampm-field:focus,
+    input::-webkit-datetime-edit-day-field:focus,
+    input::-webkit-datetime-edit-hour-field:focus,
+    input::-webkit-datetime-edit-millisecond-field:focus,
+    input::-webkit-datetime-edit-minute-field:focus,
+    input::-webkit-datetime-edit-month-field:focus,
+    input::-webkit-datetime-edit-second-field:focus,
+    input::-webkit-datetime-edit-week-field:focus,
+    input::-webkit-datetime-edit-year-field:focus {
+      background-color: rgba(0, 0, 0, 0);
+      color: #000;
+      outline: none;
+    }
+  </style>
+
+  <div class="container">
+    <div style="
+          display: flex;
+          flex-direction: row;
+          align-items: flex-end;
+          gap: 10px;
+        ">
+
+    </div>
+    <header>
+      <h1 class="description">Создать резюме</h1>
+      <div class="resume-content">
+        <p class="main-text">
+          Для создания вашего резюме, вам необходимо сначала заполнить
+          основную информацию о себе.
+        </p>
+        <p id="hiddenText">
+          Как только вы заполните все поля и нажмете соответствующую кнопку,
+          ваше резюме будет создано.
+        </p>
+        <button id="showMoreBtn">Показать больше</button>
+      </div>
+    </header>
+    <main>
+      <form id="myForm">
+        <h2 class>Личные данные</h2>
+        <div class="personal-data">
+          <div style="display: flex; gap: 10px">
+            <div class="input-wrapper">
+              <p>Имя</p>
+
+              <input type="text" name="name" id="firstName" placeholder="Имя" required />
+            </div>
+
+            <div class="input-wrapper">
+              <p>Отчество</p>
+              <input type="text" name="Surname" id="surName" placeholder="Отчество" required />
+            </div>
+          </div>
+          <div class="input-wrapper">
+            <p>Фамилия</p>
+            <input type="text" name="Lastname" id="secondName" placeholder="Фамилия" required />
+          </div>
+          <p class="validation">Пожалуйста, укажите вашу фамилию.</p>
+          <div style="display: flex; gap: 10px; margin-bottom: 5px;">
+            <div class="input-wrapper">
+              <p>Телефон</p>
+
+              <div class="phone-container"><span>+7</span> <input type="text" id="phone"
+                  data-format=" (***) *** - ** - **" data-mask="(___) ____ - __ - __" placeholder="Телефон" required />
+              </div>
+            </div>
+
+            <div class="input-wrapper">
+              <p>Email</p>
+              <input type="email" name="" id="email" placeholder="Email" required />
+            </div>
+          </div>
+          <p class="validation">Пожалуйста, укажите: email, телефон.</p>
+          <div class="gender input-wrapper">
+            <p>Пол</p>
+            <div class="form_radio">
+              <input id="radio-male" class="radio-gender" type="radio" name="radio" value="1" />
+
+              <label class="label-gender" for="radio-male"> <span class="gender-icon">&#x1F6C9;</span> Мужской</label>
+
+              <input id="radio-female" type="radio" name="radio" value="2" class="radio-gender" />
+              <label class="label-gender" for="radio-female">
+                <span class="gender-icon"> &#x1F6CA;</span> Женский
+              </label>
+            </div>
+          </div>
+          <p>Статус</p>
+          <div data-placeholder="ваш статус" class="custom-select">
+            <select>
+              <option value="1">Работаю но открыт(а) для предложений</option>
+              <option value="1">Безработный/безработная</option>
+            </select>
+          </div>
+          <div class="container-birthday-component">
+            <h3>Дата рождения</h3>
+            <div id="zodiak-form">
+              <input type="text" maxlength="2" placeholder="ДД" id="day" />
+              .
+              <input type="text" maxlength="2" placeholder="ММ" id="month" />
+              .
+              <input type="text" maxlength="4" placeholder="ГГ" id="year" />
+            </div>
+            <p class="validation">Пожалуйста, укажите корректную дату рождения. Минимальный год: 1924, максимальный год:
+              2013.</p>
+            <div class="container-birthday">
+              <h3>Знак зодиака</з>
+                <h3>Возраст</h3>
+                <div class="zodiak-pholder block-birthday">
+
+                  <img class="zodiac-icon" alt="Иконка знака зодиака">
+                  <span>Знак задиака</span>
+                </div>
+                <div class=" block-birthday">
+                  <div class="age-container">
+                    <span class="age-pholder">__</span>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <h3>Семейное положение</h3>
+          <div data-placeholder="Семейное положение" class="custom-select">
+            <select>
+              <option value="1">Женат/замужем</option>
+              <option value="2">Живу в гражданском браке</option>
+              <option value="3">В разводе</option>
+              <option value="4">Холост/не замужем</option>
+              <option value="5">Вдовец/вдова</option>
+            </select>
+          </div>
+          <h3>Наличие детей</h3>
+          <div id="haveKidsSelect" data-placeholder="Наличие детей" class="custom-select">
+            <select>
+              <option value="1">Есть</option>
+              <option value="2">Нет</option>
+            </select>
+          </div>
+
+
+          <div class="kids-age display-none">
+            <h3>Возраст</h3>
+            <button type="button">Указать возраст ребенка</button>
+
+          </div>
+
+          <div class="school-education education">
+            <h2>Образование в школе, гимназии</h2>
+            <div class="school-city">
+              <div class="input-wrapper">
+                <p>Город</p>
+                <input type="text" name="city-school" id="city-school" placeholder="Город обучения в школе, гимназии"
+                  required />
+                <p class="validation"> Пожалуйста, укажите Город.</p>
+              </div>
+            </div>
+            <div class="period-study">
+              <h3>Период обучения</h3>
+              <div style="display: flex; gap: 10px; margin-bottom: 40px;">
+                <div>
+                  <p class="date-education-title">Начало обучения</p>
+                  <div class="date-education">
+                    <input type="text" maxlength="2" placeholder="ДД" id="day" />
+                    .
+                    <input type="text" maxlength="2" placeholder="ММ" id="month" />
+                    .
+                    <input type="text" maxlength="4" placeholder="ГГГГ" id="year" />
+                  </div>
+                </div>
+                <div>
+                  <p class="date-education-title">Окончание</p>
+                  <div class="date-education">
+                    <input type="text" maxlength="2" placeholder="ДД" id="day" />
+                    .
+                    <input type="text" maxlength="2" placeholder="ММ" id="month" />
+                    .
+                    <input type="text" maxlength="4" placeholder="ГГГГ" id="year" />
+                  </div>
+                </div>
+              </div>
+              <p class="validation"> Пожалуйста, укажите Период обучения.</p>
+            </div>
+            <div class="school-description">
+              <div class="input-wrapper">
+                <p>Номер и название школы</p>
+                <input type="text" name="num-name-school" id="num-name-school" placeholder="например: ООШ №20"
+                  required />
+
+              </div>
+
+              <div class="input-wrapper">
+                <p>Наличие медали</p>
+                <div data-placeholder="Налачие медали" class="custom-select">
+                  <select>
+                    <option value="1">Нет</option>
+                    <option value="2">Золотая</option>
+                    <option value="3">Серебрянная</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <p class="validation"> Пожалуйста, укажите Номер и название школы.</p>
+          </div>
+          <button id="addSchool" class="button-add" type="button">
+            <svg style="scale: 2.5" xmlns="http://www.w3.org/2000/svg" width="26" transform="rotate(45)"
+              viewBox="-3.2 -3.2 38.4 38.4">
+              <path fill="#94aa1e"
+                d="m10.722 9.969-.784.754 5.278 5.278-5.253 5.253.754.754L16 16.755l5.253 5.253.754-.754-5.253-5.253 5.278-5.278-.754-.754L16 15.247z" />
+            </svg>
+            Добавить образование в школе, гимназии
+          </button>
+
+
+          <div class="add-education">
+
+            <div id="myModal" class="modal">
+
+              <div class="modal-content">
+                <h1 class="modal-title">Удалить Блок?</h1>
+                <h3 class="modal-description">Будет удален выбранный блок</h3>
+                <button id="del-modal" class="btn-red">Удалить</button>
+                <button id="close-modal" class="btn-white">
+                  Не удалять
+                </button>
+
+                <span class="close">&times;</span>
+
+              </div>
+            </div>
+
+            <button id="addCollege" class="button-add" type="button">
+              <svg style="scale: 2.5" xmlns="http://www.w3.org/2000/svg" width="26" transform="rotate(45)"
+                viewBox="-3.2 -3.2 38.4 38.4">
+                <path fill="#94aa1e"
+                  d="m10.722 9.969-.784.754 5.278 5.278-5.253 5.253.754.754L16 16.755l5.253 5.253.754-.754-5.253-5.253 5.278-5.278-.754-.754L16 15.247z" />
+              </svg>
+              Добавить средне-специальное образование (техникум, училище, колледж)
+            </button>
+            <button id="addUniversity" class="button-add" type="button">
+              <svg style="scale: 2.5" xmlns="http://www.w3.org/2000/svg" width="26" transform="rotate(45)"
+                viewBox="-3.2 -3.2 38.4 38.4">
+                <path fill="#94aa1e"
+                  d="m10.722 9.969-.784.754 5.278 5.278-5.253 5.253.754.754L16 16.755l5.253 5.253.754-.754-5.253-5.253 5.278-5.278-.754-.754L16 15.247z" />
+              </svg>
+              Добавить высшее-профессиональное образование (институт, университет,
+              академия)
+            </button>
+          </div>
+          <div class="adress">
+            <h2>Место жительства или гражданство</h2>
+            <div class="address-container">
+              <div class="adress-region input-wrapper-half">
+                <p for="region"> Регион проживания </p>
+                <input type="text" name="region" id="region" placeholder="Регион" required />
+                <p class="validation">Пожалуйста, укажите Регион вашего проживания.</p>
+              </div>
+              <div class="adress-city input-wrapper-half">
+                <p>Населенный пункт проживания </p>
+                <input type="text" name="city" id="city" placeholder="Населенный пункт" required />
+                <p class="validation">Пожалуйста, укажите Населенный пункт вашего проживания.</p>
+              </div>
+              <div class="adress-street input-wrapper-half">
+                <p>Улица</p>
+                <input type="text" name="street" id="street" placeholder="Улица" required />
+                <p class="validation">Пожалуйста, укажите Улицу.</p>
+              </div>
+              <div class="adress-home input-wrapper-half">
+                <p for="home">Дом </p>
+                <input type="text" name="home" id="home" placeholder="Дом" required />
+                <p class="validation">Пожалуйста, укажите дом.</p>
+              </div>
+            </div>
+            <div class="adress-rayon input-wrapper">
+              <p for="rayon"> Рейон </p>
+              <input type="text" name="rayon" id="rayon" placeholder="Район" required />
+              <p class="validation">Пожалуйста, укажите Район вашего проживания.</p>
+            </div>
+            <p>Гражданство</p>
+            <div data-placeholder="гражданство" class="custom-select">
+              <select>
+                <option value="1">РФ</option>
+                <option value="2">Не РФ</option>
+              </select>
+            </div>
+          </div>
+          <div class="work-place">
+            <h2>Последнее место работы</h2>
+            <p>Сначала добавьте сведения о последнем месте(местах) работы.</p>
+            <div class="name-organization input-wrapper">
+              <p for="work-name-organization">название компании</p>
+              <input type="text" name="work-name-organization" id="work-name-organization" required
+                placeholder="Название компании" />
+              <p class="validation">Пожалуйста, укажите название компании.</p>
+            </div>
+            <div class="rank input-wrapper">
+              <p for="rank-in-company">Должность</p>
+              <input type="text" name="rank" id="rank" placeholder="Название компании" required />
+              <p class="validation">Пожалуйста, укажите должность.</p>
+            </div>
+            <p>Начало работы</p>
+            <div class="working-timeline">
+              <div data-placeholder="Месяц" class="custom-select">
+                <select>
+                  <option value="1">Январь</option>
+                  <option value="2">Февраль</option>
+                  <option value="3">Март</option>
+                  <option value="4">Апрель</option>
+                  <option value="5">Май</option>
+                  <option value="6">Июнь</option>
+                  <option value="7">Июль</option>
+                  <option value="8">Август</option>
+                  <option value="9">Сентябрь</option>
+                  <option value="10">Октябрь</option>
+                  <option value="11">Ноябрь</option>
+                  <option value="12">Декабрь</option>
+                </select>
+
+              </div>
+              <input type="number" name="start-working" id="start-working" placeholder="Год" required />
+
+            </div>
+            <p class="validation">Пожалуйста, укажите начало работы.</p>
+            <p>Конец работы</p>
+            <div class="for-today">
+              <label for="for-today"> <span>По настоящее время</span></label>
+              <input type="checkbox" name="for-today" id="for-today" />
+            </div>
+
+            <div class="working-timeline working-timeline-end">
+              <div class="custom-select" data-placeholder="Месяц">
+                <select>
+                  <option value="1">Январь</option>
+                  <option value="2">Февраль</option>
+                  <option value="3">Март</option>
+                  <option value="4">Апрель</option>
+                  <option value="5">Май</option>
+                  <option value="6">Июнь</option>
+                  <option value="7">Июль</option>
+                  <option value="8">Август</option>
+                  <option value="9">Сентябрь</option>
+                  <option value="10">Октябрь</option>
+                  <option value="11">Ноябрь</option>
+                  <option value="12">Декабрь</option>
+                </select>
+              </div>
+              <input type="number" name="finish-working" id="finish-working" placeholder="Год" required />
+            </div>
+            <p class="validation">Пожалуйста, укажите конец работы.</p>
+            <div class="tasks input-wrapper">
+              <div class="inputContainer">
+                <p>Обязанности</p>
+                <div id="skillsInput">
+
+                  <input id="skillsInputInner" placeholder="Введите должностные функции и ключевые навыки" type="text"
+                    required>
+
+                  <button id="addSkillButton">+</button>
+                </div>
+                <div class="containerSkillsElements"></div>
+                <p class="validation">Пожалуйста, укажите Обязанности</p>
+              </div>
+            </div>
+          </div>
+          <button id="addWorkBtn" class="button-add" type="button">
+            <svg style="scale: 2.5" xmlns="http://www.w3.org/2000/svg" width="26" transform="rotate(45)"
+              viewBox="-3.2 -3.2 38.4 38.4">
+              <path fill="#94aa1e"
+                d="m10.722 9.969-.784.754 5.278 5.278-5.253 5.253.754.754L16 16.755l5.253 5.253.754-.754-5.253-5.253 5.278-5.278-.754-.754L16 15.247z" />
+            </svg>
+            Добавить место работы
+          </button>
+          <h2 class="price-title">Зарплата</h2>
+          <div class="price">
+
+            <div class="price-wrapper">
+              <div class="range-slider">
+                <p class="price-description">Желаемая сумма зарплаты </p> <output id="rangeValue">50</output></span>
+                <span class="edited-text">000 рублей</span>
+
+
+
+                <input step=5 type="range" min="0" max="140" value="50" class="slider" id="myRange" required>
+                <div class="range-fill"></div>
+              </div>
+            </div>
+          </div>
+          <h2>Способ связи</h2>
+          <div class="links-radio">
+            <div class="checkbox-phone checkbox-link">
+              <input type="checkbox" name="links" id="phone-link" value="1" />
+              <label for="phone-link">
+                <p>Телефон</p>
+              </label>
+            </div>
+            <div class="checkbox-whatsup checkbox-link">
+              <input type="checkbox" name="links" id="WhatsApp" value="2" />
+              <label for="WhatsApp">
+                <p>WhatsApp</p>
+              </label>
+            </div>
+            <div class="checkbox-viber checkbox-link">
+              <input type="checkbox" name="links" id="viber" value="3" />
+              <label for="viber">
+                <p>Viber</p>
+              </label>
+            </div>
+            <div class="checkbox-telegram checkbox-link">
+              <input type="checkbox" name="links" id="telegram" value="4" />
+              <label for="telegram">
+                <p>Telegram</p>
+              </label>
+            </div>
+
+          </div>
+          <div class="telegram-link">
+            <p>Ссылка на аккаунт Telegram</p>
+            <input type="text" name="telegram-link" id="telegram-link" placeholder="Ссылка на аккаунт Telegram" />
+          </div>
+          <p class="validation">Пожалуйста, укажите минимум один из удобных способов связи.</p>
+          <div class="photo">
+            <div id="button-close">&#x2718;</div>
+            <label class="custom-file-upload btn-red">
+              Добавить фото
+
+              <input type="file" id="fileInput" required />
+            </label>
+            <p class="validation">Пожалуйста, загрузите фото.</p>
+            <div style="position: relative;" id="imagesContainer">
+
+            </div>
+
+            <div id="cropContainerSquare"></div>
+            <div id="cropContainerCircle"></div>
+
+            <div style="display: none;" class="imageInfo">
+              <p id="formatImage">Формат: </p>
+              <p id="sizeImage">Размер: </p>
+              <p id="resolutionImage">Разрешение: </p>
+            </div>
+            <div>
+              <label for="agree">
+                <input type="checkbox" name="agree" id="agree" value="1" />
+
+
+                Я соглашаюсь с <a href=""><span>условиями</span></a> и даю свое
+                <a href=""> <span>согласие на обработку </span></a> и использование моих персональных
+                данных
+              </label>
+              <p class="validation">Для создания резюме необходимо ознакомится с условиями и дать согласие</p>
+            </div>
+
+            <div class="edit-photos"></div>
+          </div>
+          <div class="finish">
+            <button class="btn-backstep ">Предыдущий шаг</button>
+            <button type="submit" class="btn-create-resume">Создать резюме</button>
+          </div>
+      </form>
+    </main>
+  </div>
+  </div>
+  <footer>
+    <ul>
+
+      <a href="#">
+        <li>Часто задаваемые вопросы</li>
+      </a>
+      <a href="#">
+        <li>Контакт</li>
+      </a>
+      <a href="#">
+        <li>Условия</li>
+      </a>
+      <a href="#">
+        <li>Конфиденциальность</li>
+      </a>
+    </ul>
+  </footer>
+
+
+  <script src="./scripts/main.js"></script>
+  <script src="./scripts/phone.js"></script>
+  <script src="./scripts/select.js"></script>
+  <script src="./scripts/birthday.js"></script>
+  <script src="./scripts/dynamicSections.js"></script>
+  <script src="./scripts/imageEditor.js"></script>
+  <script src="./scripts/validation.js"></script>
+</body>
+
+</html>
