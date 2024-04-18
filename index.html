@@ -45,7 +45,7 @@
           Как только вы заполните все поля и нажмете соответствующую кнопку,
           ваше резюме будет создано.
         </p>
-        <button id="showMoreBtn">Показать больше</button>
+        <button type="button" id="showMoreBtn">Показать больше</button>
       </div>
     </header>
     <main>
@@ -229,8 +229,8 @@
               <div class="modal-content">
                 <h1 class="modal-title">Удалить Блок?</h1>
                 <h3 class="modal-description">Будет удален выбранный блок</h3>
-                <button id="del-modal" class="btn-red">Удалить</button>
-                <button id="close-modal" class="btn-white">
+                <button type="button" id="del-modal" class="btn-red">Удалить</button>
+                <button type="button" id="close-modal" class="btn-white">
                   Не удалять
                 </button>
 
@@ -365,7 +365,7 @@
                   <input id="skillsInputInner" placeholder="Введите должностные функции и ключевые навыки" type="text"
                     required>
 
-                  <button id="addSkillButton">+</button>
+                  <button type="button" id="addSkillButton">+</button>
                 </div>
                 <div class="containerSkillsElements"></div>
                 <p class="validation">Пожалуйста, укажите Обязанности</p>
@@ -433,7 +433,7 @@
             <label class="custom-file-upload btn-red">
               Добавить фото
 
-              <input type="file" id="fileInput" required />
+              <input type="file" id="fileInput" />
             </label>
             <p class="validation">Пожалуйста, загрузите фото.</p>
             <div style="position: relative;" id="imagesContainer">
@@ -463,7 +463,7 @@
             <div class="edit-photos"></div>
           </div>
           <div class="finish">
-            <button class="btn-backstep ">Предыдущий шаг</button>
+            <button type="button" class="btn-backstep ">Предыдущий шаг</button>
             <button type="submit" class="btn-create-resume">Создать резюме</button>
           </div>
       </form>
