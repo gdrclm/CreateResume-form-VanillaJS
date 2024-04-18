@@ -828,7 +828,7 @@ button {
   margin: 0;
 }
 .zoomInButton {
-  background-image: url("/icons/icons-imageEditor/plus.svg");
+  background-image: url("./icons/icons-imageEditor/plus.svg");
   width: 52px;
   margin-top: -4px;
 }
